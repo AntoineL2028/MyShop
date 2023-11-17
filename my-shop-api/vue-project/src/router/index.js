@@ -10,6 +10,7 @@ import edit from "../views/edit.vue";
 import users from "../views/users.vue";
 import categories from "../views/categories.vue";
 import add_category from "../views/add_category.vue";
+import edit_category from "../views/edit_category.vue";
 
 
 const router = createRouter({
@@ -69,6 +70,11 @@ const router = createRouter({
       path: "/add_category",
       name: "add_category",
       component: add_category,
+    },
+    {
+      path: "/edit_category/:name/:id",
+      name: "edit_category",
+      component: edit_category,
     },
   ],
 });
