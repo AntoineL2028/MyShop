@@ -1,9 +1,32 @@
 <template>
     <div>
       <section>
+
+         <!--filter-->
+         <article>
+            <h6 class="filterby">FILTER BY</h6>
+            <li><a href="#">Collection</a><a href="#"><img class="chevronhaut" src="../components/chevron-en-bas.png" alt="icone chapeau noir à l'envers"></a></li>
+            <li><a  href="#">Color</a><a href="#"><img class="chevronmil" src="../components/chevron-en-bas.png" alt="icone chapeau noir à l'envers"></a></li>
+            <li><a href="#">Category</a><a href="#"><img class="chevronbas" src="../components/chevron-en-bas.png" alt="icone chapeau noir à l'envers"></a></li>
+            <p>Price Range</p>
+          <div class="pricebar">
+              <div class = "price_range">
+                    <div class="range-slider">
+                        <input type= "range" class="min-price" value="0" min="0" max="10000" step="1">
+                        <input type= "range" class="max-price" value="10000" min="0" max="10000" step="1">
+                      </div>
+                    <div class="price-content">
+                          <p id="min-value">$0</p>
+                          <p id="max-value">$10,000+</p>
+                      </div>
+            </div>
+            </div>
+        </article>
+        
+
         <article v-for="product in products" :key="product.id">
          
-          <img src=".png" alt="">
+          <img src="../components/square.png" alt="">
           <div class="nomprix">
             <h4>{{ product.name }}</h4>
             <p class="prix">{{ product.price }}$</p>
@@ -48,7 +71,50 @@
 
 
  <style scoped>
- 
+
+.price-content {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.range-slider {
+  width: 100%;
+  position: relative;
+  margin: 15px 0 30px 0;
+}
+
+input[type="range"] {
+  
+  border: 0;
+  width: 100%;
+  position: absolute;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  border: 0;
+  height: 15px;
+  width: 15px;
+  border-radius: 50%;
+  background-image: url(img/sercle.svg);
+  background-color: #fff;
+  cursor: pointer;
+  margin-top: -5px;
+  position: relative;
+  z-index: 1;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 3px;
+  background: #e8e8e8;
+  border-radius: 3px;
+  border: none;
+}
+
+
+
  /*conteneur du shop*/
 section{
     display: grid;
@@ -146,6 +212,55 @@ article p {
 
 .description{
     margin-top: 10px;
+}
+
+/*text filterby*/
+.filterby {
+    color: rgb(124, 124, 124);
+    font-size: 13px;
+    padding-bottom: 20px;
+    margin-left: 0px;
+
+}
+
+/*image chevron du milieu et du bas*/
+img.chevronmil {
+    margin-left: 27.2vh;
+
+}
+
+
+
+img.chevronbas {
+    margin-left: 25.3vh;
+
+}
+
+/*liste de collection color category pricerange*/
+article li {
+    list-style-type: none;
+    text-decoration: none;
+    border-bottom: 1px solid rgb(212, 212, 212);
+    line-height: 50px;
+    margin-bottom: 14px;
+
+}
+
+/*text collection color category pricerange*/
+article a {
+    text-decoration: none;
+    list-style-type: none;
+    color: #000000;
+
+}
+
+li.pricerange {
+    list-style-type: none;
+    text-decoration: none;
+    border-bottom: 0px solid rgb(255, 255, 255);
+    line-height: 50px;
+    margin-bottom: 14px;
+    
 }
 
 

@@ -25,7 +25,7 @@ export default {
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
       const fullname = document.getElementById('fullname').value;
-      const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MDAyNDU1MDAsImV4cCI6MTcwMDI0OTEwMCwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImFudG9pbmUubG9wZXpAZXBpdGVjaC5kaWdpdGFsIn0.A2gkcfA7gxj-CXmxq9SjDGyfoXlZEjlzLBEscOpOdip6O4wkXdhRoKRzDKy5_wlWk-f7OYDQJDhfw14FZz-e1edXbHAKM3mM4kjpbkMNZITus5Det3qPiraRj0gGKjFyVVThaXTwjOBUmWFp6da027UrrNp7CORJmu1RqA8ffyDvq9cMHey1uW7LNWDvG2zI5H9TelnTXXzn8lBaN6IKDLQfCouE-uhbGPmbl1kXoVW8nxjLY7knMI67KCpkpIA0qsPsZ93OBVNA35dwlgPlxqJEVt5BjdFx2iTvH9bCGAhf0-KSkv5EC6UII0KQsku6BfeO73G0DivCIwpyvzGnzQ';
+      const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MDAyNTAwODMsImV4cCI6MTcwMDI1MzY4Mywicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImxlZG91YmxlZXRoYW5AZ21haWwuY29tIn0.PH9bHoGwnaV4t14AqYWTnA2D7T6DxmoOB2InkGq7l_oxDLX8voHrQqDZpfcoY79fgiNGXgZE6iLkIu1DPmKrAZ7_k79Ig1RV6Lxw3pqxEZDFl3o824WKyXxvl2TMhnKm3sHiE-yNrAv7XHv3GXXVyji5Ybua-EUpAqfADGzXXzSejPkN1tu93mb46aiO1fd_nOWI6LaU4OKCsgznkbkrBSGpit-wPCOKOKByARSjigNM9ZUEVvdOgr3mTVv1vN3HtGffnRq_5PbLyKm23K5Dawlc3M64rHejG462yLsLenHHtkoSOfv4RCoPWw5ZCwt82Ttu9KlpczDK6SRj2LtmkA';
       axios.post('http://localhost/api/users', {
         email: email,
         password: password,
@@ -52,6 +52,10 @@ export default {
     },
    }
 }
+
+
+
+
 
 </script>
 
@@ -143,5 +147,9 @@ a{
 .seconnecter a {
     color: #000000;
 }
+
+
+
+
 
 </style>

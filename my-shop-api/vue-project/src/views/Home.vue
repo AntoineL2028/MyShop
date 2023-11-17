@@ -5,6 +5,7 @@
    
 
     <section>
+        
         <Compoproduit />
         
     </section>
@@ -40,5 +41,6 @@
     },
     components: { Compoproduit }
 }
+
 
 </script>

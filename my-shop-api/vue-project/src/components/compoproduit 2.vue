@@ -1,6 +1,7 @@
 <template>
     <div>
       <section>
+        
         <article v-for="product in products" :key="product.id">
          
           <img src=".png" alt="">
