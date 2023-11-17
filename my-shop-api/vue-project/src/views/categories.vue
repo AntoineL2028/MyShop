@@ -20,8 +20,8 @@
             <p class="colum">{{ category.name }}</p>
             <p class="colum">{{ category.id }}</p>
             <p class="colum">{{ category.products }}</p>
-            <button @click="edit(category.name, category.id, category.products.toString())" id="edit_categorie">EDIT</button>
-            <button @click="delete_categorie(categories.id)">DELETE</button>
+            <button @click="edit_category(category.name, category.id)" id="edit_categorie">EDIT</button>
+            <button @click="delete_category(category.id)">DELETE</button>
         </section>
         </article>
         </div>
@@ -30,9 +30,10 @@
 <script>
 import { useCategories } from '../stores/categories.js';
 import { mapActions, mapState } from "pinia";
+import edit_category from './edit_category.vue';
 
 
-const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MDAyNDU1MDAsImV4cCI6MTcwMDI0OTEwMCwicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImFudG9pbmUubG9wZXpAZXBpdGVjaC5kaWdpdGFsIn0.A2gkcfA7gxj-CXmxq9SjDGyfoXlZEjlzLBEscOpOdip6O4wkXdhRoKRzDKy5_wlWk-f7OYDQJDhfw14FZz-e1edXbHAKM3mM4kjpbkMNZITus5Det3qPiraRj0gGKjFyVVThaXTwjOBUmWFp6da027UrrNp7CORJmu1RqA8ffyDvq9cMHey1uW7LNWDvG2zI5H9TelnTXXzn8lBaN6IKDLQfCouE-uhbGPmbl1kXoVW8nxjLY7knMI67KCpkpIA0qsPsZ93OBVNA35dwlgPlxqJEVt5BjdFx2iTvH9bCGAhf0-KSkv5EC6UII0KQsku6BfeO73G0DivCIwpyvzGnzQ';
+const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MDAyNTE5MTcsImV4cCI6MTcwMDI1NTUxNywicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImFudG9pbmUubG9wZXpAZXBpdGVjaC5kaWdpdGFsIn0.G3dzMHZkxX08gyIse3u8MBsqAMMeBLfAXEwP-lPspfCGinlgEbafbXuXcDRRAuGRe5l-4Op1HSPQg7BhrykWy93jWAiT6VPnnwpOhY82DrGRlOQxjOWC1mbYhkJ5QRZBJa4719OchrwrhxJNPmMped8au2nreVz7vih9sCcxxMNXvdN551THrNSQSuD2Ml0qfHywIEcy0V1IIjDFSYJ9hVaYVAQHO5qDq57UKqafaLGo2YIpmQVL4tRseaVjZyPkGPTDwRj6usMLq6iqktfWI7uPcAprd9BAfnX_ax2ap34SLFgl1pwfDnNkR7ZnFeK98cW0G2xM_pcCp3EqFiTQ4Q';
 
 export default {
     data() {
@@ -73,7 +74,7 @@ export default {
         },
         async delete_category(id) {
             try {
-                const response = await fetch(`http://localhost/api/categories?page=1/${id}`, {
+                const response = await fetch(`http://localhost/api/categories/${id}`, {
                     method: 'DELETE',
                     headers: {
                         'Authorization': `Bearer ${token}`,
@@ -108,14 +109,16 @@ export default {
             const url_window = 'http://localhost:5173/add_category';
             window.open(url_window, '_blank');
         },
-        edit_users(fullName, email, id, roles) {
+         open_edit_category() {
+            const url_window = 'http://localhost:5173/edit_category';
+            window.open(url_window, '_blank');
+        },
+        edit_category(aname, id) {
             this.$router.push({
-                name: "edit",
+                name: "edit_category",
                 params: {
-                    "fullName": aname,
-                    "email": email,
+                    "name": aname,
                     "id": id,
-                    "roles": roles,
                 }
             })
         }

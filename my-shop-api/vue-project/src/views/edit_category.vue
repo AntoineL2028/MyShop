@@ -1,17 +1,11 @@
 <template>
     <div>
-            <form class="add">
-                <h3>Modification de produit</h3>
-                <label for="aname">Nom</label>
-                <input v-model="aname" id="aname" type="text"/>
-                <label for="description">Description</label>
-                <input v-model="description" id="description" class="input" type="text"/>
-                <label for="price">Prix</label>
-                <input v-model="price" id="price" class="input" type="text"/>
-                <label for="categorie">Catégorie</label>
-                <input v-model="categorie" id="categorie" class="input" type="text"/>
-                <button type="button" class="click" @click="editProduct">Modifier</button>
-            </form>
+        <form class="add">
+            <h3>Modification de catégorie</h3>
+            <label for="aname">Nom</label>
+            <input v-model="aname" id="aname" type="text" />
+            <button type="button" class="click" @click="editCategorie()">Modifier</button>
+        </form>
     </div>
 </template>
 <script>
@@ -20,20 +14,14 @@ export default {
     data() {
         return {
             aname: this.$route.params.name,
-            description: this.$route.params.description,
-            price: this.$route.params.price,
-            categorie: this.$route.params.categories,
         }
     },
     methods: {
-        async editProduct() {
+        async editCategorie() {
             const token = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJpYXQiOjE3MDAyNTE5MTcsImV4cCI6MTcwMDI1NTUxNywicm9sZXMiOlsiUk9MRV9BRE1JTiIsIlJPTEVfVVNFUiJdLCJ1c2VybmFtZSI6ImFudG9pbmUubG9wZXpAZXBpdGVjaC5kaWdpdGFsIn0.G3dzMHZkxX08gyIse3u8MBsqAMMeBLfAXEwP-lPspfCGinlgEbafbXuXcDRRAuGRe5l-4Op1HSPQg7BhrykWy93jWAiT6VPnnwpOhY82DrGRlOQxjOWC1mbYhkJ5QRZBJa4719OchrwrhxJNPmMped8au2nreVz7vih9sCcxxMNXvdN551THrNSQSuD2Ml0qfHywIEcy0V1IIjDFSYJ9hVaYVAQHO5qDq57UKqafaLGo2YIpmQVL4tRseaVjZyPkGPTDwRj6usMLq6iqktfWI7uPcAprd9BAfnX_ax2ap34SLFgl1pwfDnNkR7ZnFeK98cW0G2xM_pcCp3EqFiTQ4Q';
 
-            axios.put(`http://localhost/api/products/${this.$route.params.id}`, {
+            axios.put(`http://localhost/api/categories/${this.$route.params.id}`, {
                 "name": document.getElementById('aname').value,
-                "description": document.getElementById('description').value,
-                "price": parseInt(document.getElementById('price').value),
-                "categories": [document.getElementById('categorie').value],
             },
                 {
                     headers: {
