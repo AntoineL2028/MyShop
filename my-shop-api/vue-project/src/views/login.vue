@@ -13,6 +13,7 @@
       <div class="creercompte">
         <router-link to="/creercompte">Créer un compte</router-link>
       </div>
+      <div id="erreur"><p id="erreurlogin" class="erreurlogin"> </p></div>
 
     </form>
   </div>
@@ -64,17 +65,20 @@ export default {
             const status = response.status;
             console.log(status)
             if (status == 200) { // Si le status est 200 alors ça veut dire que les informations rentré par l'utilisateur sont correctes
-              router.push('/product');
+              router.push('/admin');
             }
           }
           )
+          .catch(error => {
+                if (error.response.status === 401) {
+                    document.querySelector("#erreurlogin").innerHTML = "the password or the email is invalid";
+                } else {
+                    console.log(error);
+                }
+              });
       });
-      this.open_admin();
     },
-    open_admin() {
-      const url_window = 'http://localhost:5173/admin';
-      window.open(url_window, '_blank');
-    },
+   
   }
 }
 </script>

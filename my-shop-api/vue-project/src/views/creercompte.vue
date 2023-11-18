@@ -149,7 +149,18 @@ a{
 }
 
 
+#creer {
+    color: green;
+    margin-left: 90px;
+    margin-top: 10px;
+    font-size: 20px;
+}
 
+#erreur p{
+    color: #ff2121;
+    margin-left: 28px;
+    margin-top: 47px;
+}
 
 
 </style>

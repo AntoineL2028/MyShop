@@ -70,4 +70,4 @@ Ensure to right the same information of the admin user for the email and the pas
 
 ### Precision
 
-When you add or delete a product in the route 'http://localhost:5173/admin', you must reload the page and go on the home page to see the result.
+Begin on this root http://localhost:5173/home_user to use the site
